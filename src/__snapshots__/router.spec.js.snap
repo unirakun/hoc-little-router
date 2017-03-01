@@ -1,0 +1,19 @@
+exports[`Router -redux-little-router- HOC Errors should print an error when no result is found 1`] = `null`;
+
+exports[`Router -redux-little-router- HOC Errors should print an error when router reducer is not found 1`] = `null`;
+
+exports[`Router -redux-little-router- HOC should not print Component 1`] = `null`;
+
+exports[`Router -redux-little-router- HOC should not print Component on second level (absolute mode) 1`] = `null`;
+
+exports[`Router -redux-little-router- HOC should print Component on first level 1`] = `
+<div>
+  {\"prop1\":\"prop1\",\"show\":true}
+</div>
+`;
+
+exports[`Router -redux-little-router- HOC should print Component on second level 1`] = `
+<div>
+  {\"prop1\":\"prop1\",\"show\":true}
+</div>
+`;
