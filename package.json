@@ -4,6 +4,10 @@
   "description": "HOC to hide a component when the route didn't match. Edit",
   "license": "MIT",
   "main": "build/index.js",
+  "contributors": [
+    "Fabien JUIF <fabien.juif@gmail.com>",
+    "Guillaume CRESPEL <guillaume.crespel@gmail.com>"
+  ],
   "scripts": {
     "build": "cross-env BABEL_ENV=cjs babel --ignore \"*.spec.js\" ./src/ --out-dir build",
     "lint:js": "eslint --ext js,jsx src",
