@@ -1,5 +1,5 @@
 # hoc-little-router
-[![CircleCI](https://circleci.com/gh/Trampss/hoc-little-router.svg?&style=shield&circle-token=d41545d97cc6214a201fc4902db2fba4301291c7)](https://circleci.com/gh/Trampss/hoc-little-router/tree/master) [![NPM Version](https://badge.fury.io/js/hoc-little-router.svg)](https://www.npmjs.com/package/hoc-little-router) [![Coverage Status](https://coveralls.io/repos/github/Trampss/hoc-little-router/badge.svg?branch=master)](https://coveralls.io/github/Trampss/hoc-little-router?branch=master)
+[![CircleCI](https://circleci.com/gh/alakarteio/hoc-little-router.svg?&style=shield&circle-token=d41545d97cc6214a201fc4902db2fba4301291c7)](https://circleci.com/gh/alakarteio/hoc-little-router/tree/master) [![NPM Version](https://badge.fury.io/js/hoc-little-router.svg)](https://www.npmjs.com/package/hoc-little-router) [![Coverage Status](https://coveralls.io/repos/github/alakarteio/hoc-little-router/badge.svg?branch=master)](https://coveralls.io/github/alakarteio/hoc-little-router?branch=master)
 
 HOC to hide a component when the route didn't match.
 
