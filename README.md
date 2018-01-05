@@ -45,6 +45,8 @@ class Home extends React.Component {
 // ...
 
 export default router('HOME', { absolute: true })(Home)
+// or
+export default router.absolute('HOME')(Home)
 ```
 
  - `/` : Home Component is **printed**
