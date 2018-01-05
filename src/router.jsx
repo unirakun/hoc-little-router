@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 export default (title, options) => {
-  const isRouteFound = result => result && result.title === title
+  const isRouteFound = result => result && [].concat(title).includes(result.title)
   // This is genrated prop name to avoid overlaping props given from parent
   const propName = `show_${title}`
 
@@ -17,7 +17,7 @@ export default (title, options) => {
     let result = state.router.result
     if (options && options.absolute) {
       return {
-        [propName]: result.title === title,
+        [propName]: isRouteFound(result),
       }
     }
 
