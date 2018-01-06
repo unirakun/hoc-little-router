@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-exports.default = function (title, options) {
+var hoc = function hoc(title, options) {
   var isRouteFound = function isRouteFound(result) {
     return result && [].concat(title).includes(result.title);
   };
@@ -59,3 +59,9 @@ exports.default = function (title, options) {
     });
   };
 };
+
+hoc.absolute = function (title, options) {
+  return hoc(title, _extends({}, options, { absolute: true }));
+};
+
+exports.default = hoc;

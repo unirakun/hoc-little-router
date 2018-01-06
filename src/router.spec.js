@@ -24,9 +24,7 @@ const store = createStore(() => ({
   },
 }))
 
-const snap = (title, options, st = store) => {
-  const Decorated = router(title, options)(Component)
-
+const snapImpl = Decorated => (st = store) => {
   const component = renderer.create(
     <Provider store={st}>
       <Decorated prop1="prop1" show />
@@ -35,6 +33,12 @@ const snap = (title, options, st = store) => {
 
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
+}
+
+const snap = (title, options, ...args) => {
+  const Decorated = router(title, options)(Component)
+
+  return snapImpl(Decorated)(...args)
 }
 
 describe('Router -redux-little-router- HOC', () => {
@@ -47,6 +51,17 @@ describe('Router -redux-little-router- HOC', () => {
   it('should match multiple routes -both are ok-', () => snap(['TITLE_2', 'TITLE_1']))
   it('should match multiple routes -both are ko-', () => snap(['TITLE_42', 'TITLE_43']))
   it('should match multiple routes -both are ko because of absolute-', () => snap(['TITLE_2', 'TITLE_42'], { absolute: true }))
+
+  it('should not print Component on second level (absolute mode, with helper)', () => {
+    const Decorated = router.absolute('TITLE_2')(Component)
+    snapImpl(Decorated)()
+  })
+
+  it('should print Component on first level (with helper)', () => {
+    const Decorated = router.absolute('TITLE_1')(Component)
+    snapImpl(Decorated)()
+  })
+
 
   describe('Errors', () => {
     let spy
