@@ -12,7 +12,7 @@
     "build": "cross-env BABEL_ENV=cjs babel --ignore \"*.spec.js\" ./src/ --out-dir build",
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "lint:js": "eslint --ext js src",
+    "lint:js": "eslint --ext js,jsx src",
     "lint": "npm-run-all --parallel lint:*",
     "ci": "npm-run-all --parallel lint coveralls"
   },
