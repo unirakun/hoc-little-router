@@ -18,7 +18,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var hoc = function hoc(title, options) {
   var isRouteFound = function isRouteFound(result) {
-    return result && result.title === title;
+    return result && [].concat(title).includes(result.title);
   };
   // This is genrated prop name to avoid overlaping props given from parent
   var propName = 'show_' + title;
@@ -33,7 +33,7 @@ var hoc = function hoc(title, options) {
     // Absolute mode, we are looking in top level only
     var result = state.router.result;
     if (options && options.absolute) {
-      return _defineProperty({}, propName, result.title === title);
+      return _defineProperty({}, propName, isRouteFound(result));
     }
 
     // Either way we are looking top down the result tree

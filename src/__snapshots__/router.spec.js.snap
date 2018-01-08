@@ -2,6 +2,28 @@ exports[`Router -redux-little-router- HOC Errors should print an error when no r
 
 exports[`Router -redux-little-router- HOC Errors should print an error when router reducer is not found 1`] = `null`;
 
+exports[`Router -redux-little-router- HOC should match multiple routes -both are ko because of absolute- 1`] = `null`;
+
+exports[`Router -redux-little-router- HOC should match multiple routes -both are ko- 1`] = `null`;
+
+exports[`Router -redux-little-router- HOC should match multiple routes -both are ok- 1`] = `
+<div>
+  {\"prop1\":\"prop1\",\"show\":true}
+</div>
+`;
+
+exports[`Router -redux-little-router- HOC should match multiple routes -one failed, one is ok with absolute- 1`] = `
+<div>
+  {\"prop1\":\"prop1\",\"show\":true}
+</div>
+`;
+
+exports[`Router -redux-little-router- HOC should match multiple routes -one failed, one is ok- 1`] = `
+<div>
+  {\"prop1\":\"prop1\",\"show\":true}
+</div>
+`;
+
 exports[`Router -redux-little-router- HOC should not print Component 1`] = `null`;
 
 exports[`Router -redux-little-router- HOC should not print Component on second level (absolute mode) 1`] = `null`;

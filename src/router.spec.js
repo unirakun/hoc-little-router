@@ -46,6 +46,11 @@ describe('Router -redux-little-router- HOC', () => {
   it('should not print Component', () => snap('TITLE_42'))
   it('should print Component on second level', () => snap('TITLE_2'))
   it('should not print Component on second level (absolute mode)', () => snap('TITLE_2', { absolute: true }))
+  it('should match multiple routes -one failed, one is ok-', () => snap(['TITLE_42', 'TITLE_1']))
+  it('should match multiple routes -one failed, one is ok with absolute-', () => snap(['TITLE_42', 'TITLE_1'], { absolute: true }))
+  it('should match multiple routes -both are ok-', () => snap(['TITLE_2', 'TITLE_1']))
+  it('should match multiple routes -both are ko-', () => snap(['TITLE_42', 'TITLE_43']))
+  it('should match multiple routes -both are ko because of absolute-', () => snap(['TITLE_2', 'TITLE_42'], { absolute: true }))
 
   it('should not print Component on second level (absolute mode, with helper)', () => {
     const Decorated = router.absolute('TITLE_2')(Component)
