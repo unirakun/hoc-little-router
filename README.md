@@ -35,7 +35,15 @@ export default router('HOME')(Home)
  - `/search` : Home Component is **printed**
 
 ### List screens
-TODO
+You can attach the same component to multiple routes like this:
+```es6
+import router from 'hoc-little-router'
+
+class Menu extends React.Component {
+// ...
+
+export default router(['HOME', 'SEARCH'])(Menu)
+```
 
 ### Absolute
 The `Home` component will be printed when `redux-little-router` find a title that match `HOME` from URL but **not** its parents.
