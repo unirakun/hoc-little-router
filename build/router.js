@@ -20,6 +20,7 @@ var hoc = function hoc(title, options) {
   var isRouteFound = function isRouteFound(result) {
     return result && [].concat(title).includes(result.title);
   };
+
   // This is genrated prop name to avoid overlaping props given from parent
   var propName = 'show_' + title;
 
