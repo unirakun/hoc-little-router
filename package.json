@@ -17,14 +17,14 @@
     "ci": "npm-run-all --parallel lint coveralls"
   },
   "peerDependencies": {
-    "react": "^15.4.2",
-    "react-redux": "^5.0.2"
+    "react": "^15.4.2"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-plugin-transform-react-jsx": "^6.8.0",
@@ -42,7 +42,7 @@
     "jest": "^18.1.0",
     "npm-run-all": "3.1.2",
     "react": "^15.4.2",
-    "react-redux": "^5.0.2",
+    "react-redux": "^5.0.6",
     "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
     "sinon": "^1.17.7"
@@ -58,7 +58,8 @@
   },
   "babel": {
     "plugins": [
-      "transform-object-rest-spread"
+      "transform-object-rest-spread",
+      "transform-class-properties"
     ],
     "presets": [
       "es2015",
