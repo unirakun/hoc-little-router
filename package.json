@@ -34,12 +34,12 @@
     "cross-env": "^3.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^3.13.1",
-    "eslint-config-airbnb": "^14.0.0",
-    "eslint-plugin-babel": "^4.0.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
-    "eslint-plugin-react": "^6.9.0",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
     "jest": "^22.1.4",
     "npm-run-all": "3.1.2",
     "react": "^16.2.0",
@@ -117,7 +117,8 @@
       "import/no-unresolved": 0,
       "import/extensions": 0,
       "func-names": 0,
-      "jsx-a11y/no-static-element-interactions": 0
+      "jsx-a11y/no-static-element-interactions": 0,
+      "function-paren-newline": 0
     }
   },
   "jest": {
