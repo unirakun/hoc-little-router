@@ -12,7 +12,7 @@
     "build:core": "cross-env NODE_ENV=build rollup -c ./misc/rollup.config.js",
     "build": "npm-run-all --parallel build:*",
     "test": "jest",
-    "coveralls": "jest --coverage --collectCoverageFrom=src/**/*.js && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "jest --coverage --collectCoverageFrom=src/**/*.js{x} && cat ./coverage/lcov.info | coveralls",
     "lint:js": "eslint --ext js,jsx src",
     "lint": "npm-run-all --parallel lint:*",
     "ci": "npm-run-all --parallel lint coveralls"
