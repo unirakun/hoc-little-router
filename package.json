@@ -17,7 +17,7 @@
     "ci": "npm-run-all --parallel lint coveralls"
   },
   "peerDependencies": {
-    "react": "^15.4.2"
+    "react": "^15.4.2 || ^16.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -33,17 +33,19 @@
     "babel-register": "^6.18.0",
     "coveralls": "^2.11.16",
     "cross-env": "^3.1.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-babel": "^4.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
-    "jest": "^18.1.0",
+    "jest": "^22.1.4",
     "npm-run-all": "3.1.2",
-    "react": "^15.4.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
     "sinon": "^1.17.7"
   },
@@ -54,7 +56,8 @@
     "moduleDirectories": [
       "node_modules",
       "src"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "./misc/test-setup.js"
   },
   "babel": {
     "plugins": [
