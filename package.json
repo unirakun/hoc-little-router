@@ -12,7 +12,7 @@
     "build:core": "cross-env NODE_ENV=build rollup -c ./misc/rollup.config.js",
     "build": "npm-run-all --parallel build:*",
     "test": "jest",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "jest --coverage --collectCoverageFrom=src/**/*.js && cat ./coverage/lcov.info | coveralls",
     "lint:js": "eslint --ext js,jsx src",
     "lint": "npm-run-all --parallel lint:*",
     "ci": "npm-run-all --parallel lint coveralls"
@@ -50,16 +50,6 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-uglify": "^3.0.0",
     "sinon": "^1.17.7"
-  },
-  "jest": {
-    "transform": {
-      ".*": "./node_modules/babel-jest"
-    },
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
-    "setupTestFrameworkScriptFile": "./misc/test-setup.js"
   },
   "babel": {
     "presets": [
@@ -128,5 +118,12 @@
       "func-names": 0,
       "jsx-a11y/no-static-element-interactions": 0
     }
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "setupTestFrameworkScriptFile": "./misc/test-setup.js"
   }
 }
