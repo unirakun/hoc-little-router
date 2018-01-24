@@ -46,7 +46,7 @@ const hoc = (title, options) => Component => class extends React.Component {
     }
 
     // Absolute mode, we are looking in top level only
-    let result = state.router.result
+    let { result } = state.router
     if (options && options.absolute) {
       const show = isRouteFound(title)(result)
       if (show !== this.state.show) {
