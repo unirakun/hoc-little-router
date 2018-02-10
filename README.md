@@ -1,7 +1,7 @@
 # hoc-little-router
 [![CircleCI](https://circleci.com/gh/alakarteio/hoc-little-router.svg?&style=shield&circle-token=d41545d97cc6214a201fc4902db2fba4301291c7)](https://circleci.com/gh/alakarteio/hoc-little-router/tree/master) [![NPM Version](https://badge.fury.io/js/hoc-little-router.svg)](https://www.npmjs.com/package/hoc-little-router) [![Coverage Status](https://coveralls.io/repos/github/alakarteio/hoc-little-router/badge.svg?branch=master)](https://coveralls.io/github/alakarteio/hoc-little-router?branch=master) [![Size](http://img.badgesize.io/alakarteio/hoc-little-router/master/index.js.svg)]()
 
-HOC to hide a component when the route didn't match.
+redux-little-router HOC to render a component when the route is matching!
 
 You need [redux-little-router](https://github.com/FormidableLabs/redux-little-router) for that HOC.
 
