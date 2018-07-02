@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from './dynamic'
 
 const getDisplayName = Component => `router(${
   Component.displayName
@@ -71,10 +72,13 @@ const hoc = (title, options) => Component => class extends React.Component {
   render() {
     if (!this.state.show) return null
 
-    return <Component {...this.props} />
+    const RouteComponent = options && options.dynamic ? dynamic(Component) : Component
+    return <RouteComponent {...this.props} />
   }
 }
 
 hoc.absolute = (title, options) => hoc(title, { ...options, absolute: true })
+
+hoc.dynamic = (title, options) => hoc(title, { ...options, dynamic: true })
 
 export default hoc
