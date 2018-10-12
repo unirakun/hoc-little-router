@@ -1,6 +1,6 @@
 {
   "name": "hoc-little-router",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "HOC to hide a component when the route didn't match. Edit",
   "license": "MIT",
   "main": "dist/index.js",
