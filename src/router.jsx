@@ -23,8 +23,10 @@ const hoc = (title, options) => Component => class extends React.Component {
   }
 
   componentWillMount() {
+    const { store } = this.context
+
     // subscribe
-    this.unsubscribe = this.context.store.subscribe(() => {
+    this.unsubscribe = store.subscribe(() => {
       this.toShow()
     })
 
@@ -37,7 +39,9 @@ const hoc = (title, options) => Component => class extends React.Component {
   }
 
   toShow = () => {
-    const state = this.context.store.getState()
+    const { store } = this.context
+
+    const state = store.getState()
 
     if (!state.router || !state.router.result) {
       // eslint-disable-next-line no-console
@@ -49,7 +53,7 @@ const hoc = (title, options) => Component => class extends React.Component {
     let { result } = state.router
     if (options && options.absolute) {
       const show = isRouteFound(title)(result)
-      if (show !== this.state.show) {
+      if (show !== this.state.show) { // eslint-disable-line react/destructuring-assignment
         this.setState(innerState => ({ ...innerState, show }))
       }
 
@@ -63,13 +67,15 @@ const hoc = (title, options) => Component => class extends React.Component {
       show = isRouteFound(title)(result)
     }
 
-    if (show !== this.state.show) {
+    if (show !== this.state.show) { // eslint-disable-line react/destructuring-assignment
       this.setState(innerState => ({ ...innerState, show }))
     }
   }
 
   render() {
-    if (!this.state.show) return null
+    const { show } = this.state
+
+    if (!show) return null
 
     return <Component {...this.props} />
   }
