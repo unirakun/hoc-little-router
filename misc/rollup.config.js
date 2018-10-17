@@ -15,6 +15,7 @@ export default {
     sourcemap: path.resolve(pkg.main),
     globals: {
       react: 'React',
+      'react-redux': 'reactRedux',
     },
   },
   plugins: [
@@ -25,5 +26,5 @@ export default {
     }),
     terser(),
   ],
-  external: ['react'],
+  external: ['react', 'react-redux'],
 }
