@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const getDisplayName = Component => `router(${
   Component.displayName
@@ -7,77 +8,38 @@ const getDisplayName = Component => `router(${
   || 'Unknown'
 })`
 
+const mapStateToProps = (state) => {
+  if (!state.router || !state.router.result) {
+    // eslint-disable-next-line no-console
+    console.error('/HOC/ Router | There is no route found in `state.router.result`')
+  }
+  return { __hoc_little_router__result: state.router && state.router.result }
+}
+
 const isRouteFound = title => result => result && [].concat(title).includes(result.title)
 
-const hoc = (title, options) => Component => class extends React.Component {
-  static displayName = getDisplayName(Component)
+const matchAbsolute = resultMatch => result => resultMatch(result)
 
-  static contextTypes = {
-    store: () => null, // this is to avoid importing prop-types
-  }
+const matchTopDown = resultMatch => (result) => {
+  if (!result) return false
+  return resultMatch(result) || matchTopDown(resultMatch)(result.parent)
+}
 
-  constructor(props, context) {
-    super(props, context)
+const hoc = (title, options = {}) => {
+  const isRouteFoundForTitle = isRouteFound(title)
+  const toShow = options.absolute
+    ? matchAbsolute(isRouteFoundForTitle)
+    : matchTopDown(isRouteFoundForTitle)
 
-    this.state = { show: false }
-  }
+  return (Component) => {
+    const WrapedComponent = connect(mapStateToProps)(
+      ({ __hoc_little_router__result, ...props }) => (
+        toShow(__hoc_little_router__result) && <Component {...props} />
+      ),
+    )
 
-  componentWillMount() {
-    const { store } = this.context
-
-    // subscribe
-    this.unsubscribe = store.subscribe(() => {
-      this.toShow()
-    })
-
-    // run in once
-    this.toShow()
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe()
-  }
-
-  toShow = () => {
-    const { store } = this.context
-
-    const state = store.getState()
-
-    if (!state.router || !state.router.result) {
-      // eslint-disable-next-line no-console
-      console.error('/HOC/ Router | There is no route found in `state.router.result`')
-      return
-    }
-
-    // Absolute mode, we are looking in top level only
-    let { result } = state.router
-    if (options && options.absolute) {
-      const show = isRouteFound(title)(result)
-      if (show !== this.state.show) { // eslint-disable-line react/destructuring-assignment
-        this.setState(innerState => ({ ...innerState, show }))
-      }
-
-      return
-    }
-
-    // Either way we are looking top down the result tree
-    let show = isRouteFound(title)(result)
-    while (result && !show) {
-      result = result.parent
-      show = isRouteFound(title)(result)
-    }
-
-    if (show !== this.state.show) { // eslint-disable-line react/destructuring-assignment
-      this.setState(innerState => ({ ...innerState, show }))
-    }
-  }
-
-  render() {
-    const { show } = this.state
-
-    if (!show) return null
-
-    return <Component {...this.props} />
+    WrapedComponent.displayName = getDisplayName(Component)
+    return WrapedComponent
   }
 }
 
