@@ -1,6 +1,8 @@
 # For now we deprecate this HOC (and our redux-little-router usage) in profit of [k-redux-router](https://github.com/alakarteio/k-redux-router).
 _Please open an issue if you want to argue about this decision._
 
+**Feel free to open PRs, we are still reviewing them**
+
 -----
 
 # hoc-little-router
